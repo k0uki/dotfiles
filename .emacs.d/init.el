@@ -22,7 +22,7 @@
 	    (normal-top-level-add-subdirs-to-load-path))))))
 
 ;; elispとconfディレクトリをサブディレクトリごとload-pathに追加
-(add-to-load-path "elisp" "inits" "auto-install")
+(add-to-load-path "elisp" "public_repos" "inits" "auto-install")
 
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits")

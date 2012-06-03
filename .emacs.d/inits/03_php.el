@@ -2,14 +2,6 @@
 ;;; 03_php.el
 ;;; php関連
 
-;;;  Setting for CakePHP
-;;================================
-;cake.el動かず。。
-;(add-to-list 'load-path "~/.emacs.d/elisp/cake")
-;(when (require 'cake nil t)
-;  ;;何かあればここ
-;)
-;;(add-to-list 'auto-mode-alist '("\\.ctp$" . php-mode))
 (require 'php-mode)
 ;; php-completion
 ;; auto-install-from-emacswiki php-completion
@@ -56,3 +48,44 @@
 	  (add-to-list 'mmm-save-local-variables `(,(car v) nil, mmm-c-derived-modes))))))
   (save-mmm-c-locals)
   )
+
+;;;  Setting for CakePHP
+;;================================
+
+;; Cake1系
+(when (require 'cake nil t)
+  (cake-set-default-keymap)
+  (global-cake t))
+
+;; Cake2系
+(when (require 'cake2 nil t)
+  (cake2-set-default-keymap)
+  (global-cake2 -1))
+
+;; emacs-cakeを切り替えるコマンドを定義
+(defun toggle-emacs-cake ()
+  "emacs-cakeとemacs-cake2を切り替える"
+  (interactive)
+  (cond ((eq cake2 t) ; cake2がonなら
+	 (cake2 -1) ; cake2をoffにして
+	 (cake t))
+	((eq cake t) ; cakeがonなら
+	 (cake -1) ; cakeをoffにして
+	 (cake2 t))
+	(t nil))) ; どちらもoffならなにもしない
+
+;; C-c tにtoggle-emacs-cakeを割り当て
+(define-key cake-key-map (kbd "C-c t") 'toggle-emacs-cake)
+(define-key cake2-key-map (kbd "C-c t") 'toggle-emacs-cake)
+
+;; auto-complete, ac-cake, ac-cake2の読み込みをチェック
+(when (and (require 'auto-complete nil t)
+	   (require 'ac-cake nil t)
+	   (require 'ac-cake2 nil t))
+  ;; ac-cake用の関数定義
+  (defun ac-cake-hook()
+    (make-variable-buffer-local 'ac-sources)
+    (add-to-list 'ac-source 'ac-source-cake)
+    (add-to-list 'ac-source 'ac-source-cake2))
+  ;; php-mode-hookにac-cake用の関数を追加
+  (add-hook 'php-mode-hook 'ac-cake-hook))

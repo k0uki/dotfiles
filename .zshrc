@@ -18,7 +18,7 @@ bindkey -e                        # emacsライクなキーバインド
 
 export LANG=ja_JP.UTF-8           # 日本語環境
 
-export EDITOR=emacs               # エディタはemacs
+export EDITOR=vim               # エディタはvim
 
 
 autoload -U compinit              # 強力な補完機能

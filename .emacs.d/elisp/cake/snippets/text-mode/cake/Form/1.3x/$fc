@@ -1,3 +1,0 @@
-#name : $this->Form->create(...)
-# --
-\$this->Form->create('${1:Model}', array('action' => '${2:add}'));

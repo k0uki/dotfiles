@@ -1,3 +1,0 @@
-#name : $html->url(...)
-# --
-\$html->url('${1:url_path}');

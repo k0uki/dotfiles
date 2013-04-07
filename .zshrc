@@ -72,9 +72,20 @@ bindkey "^N" history-beginning-search-forward-end
 # alias
 
 alias ls="ls -G"
+alias b="bundle"
+alias be="bundle exec"
+alias r="rails"
 
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 
+# For CakePHP
+alias cake='cake/console/cake'
+alias bake='cake bake'
+alias cake-cc="find ./app/tmp/cache -type f -name 'cake_*' -exec rm {} \;"
+# For 2.0
+alias cake2='lib/Cake/Console/cake'
+alias bake2='cake2 bake'
 
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include # 設定ファイルのinclude
+

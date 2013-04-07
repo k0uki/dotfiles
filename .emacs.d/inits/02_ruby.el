@@ -2,6 +2,11 @@
 ;;; 02_ruby.el
 ;;; ruby関連
 
+(add-to-list 'auto-mode-alist '("[Rr]akefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("[Gg]emfile" . ruby-mode))
+ 
+
+
 ;;;  Setting for rails 
 ;;================================
 ;; http://d.hatena.ne.jp/willnet/20090110/1231595231

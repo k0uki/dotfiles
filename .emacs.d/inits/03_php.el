@@ -55,12 +55,12 @@
 ;; Cake1系
 (when (require 'cake nil t)
   (cake-set-default-keymap)
-  (global-cake t))
+  (global-cake -1))
 
 ;; Cake2系
 (when (require 'cake2 nil t)
   (cake2-set-default-keymap)
-  (global-cake2 -1))
+  (global-cake2 t))
 
 ;; emacs-cakeを切り替えるコマンドを定義
 (defun toggle-emacs-cake ()
@@ -75,8 +75,8 @@
 	(t nil))) ; どちらもoffならなにもしない
 
 ;; C-c tにtoggle-emacs-cakeを割り当て
-(define-key cake-key-map (kbd "C-c t") 'toggle-emacs-cake)
-(define-key cake2-key-map (kbd "C-c t") 'toggle-emacs-cake)
+;(define-key cake-key-map (kbd "C-c t") 'toggle-emacs-cake)
+;(define-key cake2-key-map (kbd "C-c t") 'toggle-emacs-cake)
 
 ;; auto-complete, ac-cake, ac-cake2の読み込みをチェック
 (when (and (require 'auto-complete nil t)
@@ -88,4 +88,5 @@
     (add-to-list 'ac-source 'ac-source-cake)
     (add-to-list 'ac-source 'ac-source-cake2))
   ;; php-mode-hookにac-cake用の関数を追加
-  (add-hook 'php-mode-hook 'ac-cake-hook))
+  ;(add-hook 'php-mode-hook 'ac-cake-hook)
+  )

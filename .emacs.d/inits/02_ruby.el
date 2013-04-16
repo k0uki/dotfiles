@@ -25,9 +25,9 @@
 (when (require 'rhtml-mode nil t))
 
 ;; coffee-mode
-(require 'coffee-mode)
+(when (require 'coffee-mode nil t)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
-(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
 ;; cucumber
 (require 'feature-mode)
+

@@ -1,5 +1,6 @@
-# rbenv
+export PATH=/usr/local/sbin:$HOME/.rbenv/bin:$HOME/.phpenv/bin:$PATH
 eval "$(rbenv init -)"
+eval "$(phpenv init -)"
 
 
 # PROMPT
@@ -73,8 +74,8 @@ bindkey "^N" history-beginning-search-forward-end
 
 alias ls="ls -G"
 alias b="bundle"
-alias be="bundle exec"
 alias r="rails"
+alias be="bundle exec"
 
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
@@ -88,4 +89,3 @@ alias cake2='lib/Cake/Console/cake'
 alias bake2='cake2 bake'
 
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include # 設定ファイルのinclude
-

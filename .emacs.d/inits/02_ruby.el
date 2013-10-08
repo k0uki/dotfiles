@@ -31,3 +31,8 @@
 
 ;; cucumber
 (require 'feature-mode)
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$\\|\\.yaml$" . yaml-mode))
+
+(require 'slim-mode)

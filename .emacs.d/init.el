@@ -26,3 +26,22 @@
 
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits")
+
+(require 'package)
+; Add package-archives
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) ; ついでにmarmaladeも追加
+; Initialize
+(package-initialize)
+
+; melpa.el
+(require 'melpa)
+
+;; (auto-install-from-url "http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el")
+
+;; (progn
+;;   (switch-to-buffer
+;;    (url-retrieve-synchronously
+;;     "https://raw.github.com/milkypostman/melpa/master/melpa.el"))
+;;   (package-install-from-buffer  (package-buffer-info) 'single))
+
